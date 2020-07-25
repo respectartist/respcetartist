@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food登陆</title>
+    <style>
+        body{
+            margin:0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color:orange;
+        }
+        .box{
+            width:300px;
+            padding:40px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            background-color: peru;
+            text-align: center;
+        }
+        .box input[type = "text"], .box input[type = "password"]{
+            border:0px;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align:center;
+            border:2px solid olive;
+            padding:14px 10px;
+            width:200px;
+            outline:none;
+            color:black;
+            border-radius: 24px;
+            transition:0.25s;
+        }
+        .box h1{
+            color:papayawhip;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .box input[type = "text"]:focus, .box input[type = "password"]:focus{
+            width:280px;
+            border-color:sandybrown;
+        }
+        .box input[type = "submit"]{
+            border:0;
+            background: none;
+            display:block;
+            margin:20px auto;
+            text-decoration: center;
+            border:green 2px solid;
+            padding:14px 40px;
+            outline:none;
+            color: black;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor:pointer;
+        }
+        .box input:hover{
+            background-color: orangered;
+        }
+        a{
+            color:teal;
+            text-decoration: none;
+        }
+    </style>
+</head>
+      
+<body>
+    
+        <form action = "测试.htm" class = "box" method = "post">
+            <h1> Food </h1>
+            <input type = "text" placeholder = "账号" name = "account" autocomplete="off"/>
+           
+           <input type = "password" placeholder = "密码" name = "password" autocomplete="off" />
+            
+            <input type = "submit" value = "登陆"/>
+            <a href="javasprite" >忘记密码？</a>
+        </form>
+    
+</body>
+</html>
