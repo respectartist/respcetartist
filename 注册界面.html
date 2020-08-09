@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet"  type = "text/css" href = "register.css">
+<body>
+    <form  action="登录界面.html" class="box" method = "post">
+        <h1>注册</h1>
+        <div class="block1">
+          <span>昵       称:</span><input type="text" class="nickname" placeholder = "昵称" maxlength="10"value="">
+        </div>
+        <div class="block2">
+          <span>电       话:</span><input type= "text" class="telephone" placeholder = "电话" maxlength="11"value="">
+        </div>
+        <div class="block3">
+          <span>密       码:</span><input type="text" class="password" placeholder = "密码"maxlength="20"value="">
+        </div>
+        <div class="block4">
+            确认密码:<input type="text" class="comfirm" placeholder = "确认密码"maxlength="20">
+        </div>
+        <input type = "button" value = "提交" class="btn">
+    </form>
+        <script>
+            var password = document.querySelector('.password');
+            var comfirm = document.querySelector('.comfirm');
+            var btn = document.querySelector('.btn');
+            
+            btn.onclick = function () {
+                  if(password.value==comfirm.value)
+                  {
+                    var nameValue = document.querySelector('.nickname').value;
+                    var tdValue = document.querySelector('.telephone').value;
+                    var xhr = new XMLHttpRequest();
+                    var params = "nickname="+nameValue+"&telephone="+tdValue+"&password="+password.value;
+                    xhr.open('post','http://localhost:3000/register');
+                    //设置请求头
+                    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                    //发送请求
+                    xhr.send(params);
+                    xhr.onload = function () {
+                        //接收回来的数据
+                       if(xhr.responseText==1)
+                       {
+                           alert('注册成功');
+                           var login = document.querySelector('.btn'); 
+                           login.type ='submit';
+                       }
+                       else alert('你的号码已被注册');
+                    }
+                   xhr.onerror = function(){
+                       alert('网络中断，无法发送请求');
+                   }
+                  }
+                 else  alert('密码不一致，请检查！！!');
+
+            }
+
+        </script>
+
+    </form>
+</body>
+</html>

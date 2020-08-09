@@ -1,0 +1,83 @@
+body{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color:orange;
+}
+.box{
+    width:300px;
+    height:350px;
+    padding:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: peru;
+    text-align: center;
+}
+.account,.password{
+    border:0px;
+    background:none;
+    display: block;
+    margin: 20px auto;
+    text-align:center;
+    border:2px solid olive;
+    padding:14px 10px;
+    width:200px;
+    outline:none;
+    color:black;
+    border-radius: 24px;
+    transition:0.25s;
+}
+.box h1{
+    color:darkslategray;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.password:focus,.account:focus{
+    width:280px;
+    border-color:sandybrown;
+}
+.btn{
+    border:0;
+    background: none;
+    display:block;
+    margin:20px auto;
+    text-decoration: center;
+    border:green 2px solid;
+    padding:14px 40px;
+    outline:none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor:pointer;
+}
+.account:hover,.password:hover,.btn:hover{
+    background-color:darkorange;
+}
+.register{
+    display:block;
+    float:left;
+}
+.forget{
+    display:block;
+    float:right;
+}
+a{
+    color:teal;
+    text-decoration: none;
+}
+a:hover{
+    color:darkorange;
+}
+.block
+{
+    background-color: peru;
+    color:darkslategray;
+    font-size:10px;
+    text-transform: uppercase;
+}
+.div2
+{
+    height:2px;
+}

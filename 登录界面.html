@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登陆</title>
+    <link rel = "stylesheet" type = "text/css" href = "login.css"/> 
+</head>
+      
+<body>
+        
+        <form action = "测试.htm" class = "box" method = "post">
+            <h1> 登陆 </h1>
+            <input type = "text" placeholder = "账号" class = "account" autocomplete="on" value="" />
+            <div class="block">
+            <input type = "password" placeholder = "密码" class = "password" autocomplete="off" />
+            </div>
+            <input type = "button" value = "登陆" class="btn">
+            <br>
+            <a href="注册界面.htm" class="register">注册</a>
+            <a href="javasprite" class="forget">忘记密码？</a>
+        </form>
+        <script type="text/javascript">
+        
+               var btn = document.querySelector('.btn');
+               var userAccount = document.querySelector('.account');
+               var userPassword = document.querySelector('.password');
+               userPassword.onmouseover = function(){
+                   var div = document.createElement('div');
+                   var father = document.querySelector('.block');
+                   father.appendChild(div);
+                   div.innerHTML = '请输入10个以内字符';
+                   div.setAttribute('class','div2')
+                }
+                userPassword.onmouseleave = function(){
+                    var father = document.querySelector('.block');
+                    var div = document.querySelector('.div2');
+                    father.removeChild(div);
+                }
+               btn.onclick = function () {
+                   //创建ajax对象
+                    var xhr = new XMLHttpRequest();
+                    var accountValue = userAccount.value;
+                    var passwordValue = userPassword.value;
+                    var params = "useraccount="+accountValue+"&password="+passwordValue;
+                    //配置ajax对象
+                    xhr.open('post','http://localhost:3000/post');
+                    //设置请求头
+                    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                    //发送请求
+                    xhr.send(params);
+                    xhr.onload = function () {
+                        //接收回来的数据
+                       if(xhr.responseText==1)
+                       {
+                           btn.type ='submit';
+                       }
+                       else alert('账号或密码输入错误');
+                    }
+                   xhr.onerror = function(){
+                       alert('网络中断，无法发送请求');
+                   }
+               }
+              
+
+        </script>
+    
+</body>
+</html>
